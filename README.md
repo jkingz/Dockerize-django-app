@@ -10,7 +10,11 @@ Make sure you have the following installed on your machine:
 - [﻿Git](https://git-scm.com/) 
 **Installation**
 
-Install the project dependencies:r
+Install the project dependencies:
+
+
+
+![image.png](/.eraser/CFRU4D7w5QLjrbt6WUym___LDNqz8zHGhSJCTKFJLMGzGpX3ru2___p6sLjCHeunnxHIKtNJTgu.png "image.png")
 
 
 
