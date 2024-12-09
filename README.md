@@ -20,4 +20,11 @@ Install the project dependencies:
 
 
 
+
+<!-- eraser-additional-content -->
+## Diagrams
+<!-- eraser-additional-files -->
+<a href="/README-cloud-architecture-1.eraserdiagram" data-element-id="0hpllp8XEiCCQkxbG6aqv"><img src="/.eraser/CFRU4D7w5QLjrbt6WUym___LDNqz8zHGhSJCTKFJLMGzGpX3ru2___---diagram----5234ea0b545a36ba02491a43ca14e0fb.png" alt="" data-element-id="0hpllp8XEiCCQkxbG6aqv" /></a>
+<!-- end-eraser-additional-files -->
+<!-- end-eraser-additional-content -->
 <!--- Eraser file: https://app.eraser.io/workspace/CFRU4D7w5QLjrbt6WUym --->
