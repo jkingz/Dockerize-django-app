@@ -1,10 +1,76 @@
-name: my-dockerized-app
+name: django-docker-container
 
 services:
   app:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: my-docker-image
-    container_name: my-docker-container
+    container_name: my-app-container
+    command: /app/entrypoint.sh
     ports:
-      - "8000:8001"
+      - "8000:8000"
     volumes:
       - .:/app
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+  postgres:
+    image: postgres
+    container_name: my-docker-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+    container_name: my-docker-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  celery:
+    image: my-docker-image
+    container_name: my-docker-celery
+    command: celery -A core worker -E -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+      - redis
+      - app
+
+  beat:
+    image: my-docker-image
+    container_name: my-docker-beat
+    command: celery -A core beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - app
+
+  flower:
+    image: my-docker-image
+    container_name: my-docker-flower
+    command: celery -A core flower --basic_auth=admin:admin
+    ports:
+      - "5555:5555"
+    depends_on:
+      - redis
+
+volumes:
+  postgres_data:
+  redis_data:
