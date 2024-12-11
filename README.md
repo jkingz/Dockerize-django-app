@@ -41,8 +41,11 @@ Dockerize Django project template
 ## <a name="features">🔋 Features</a>
 
 👉 **Docker-Django**: Docker Django docker compose with multiple serices
+
 👉 **Celery**: Trigger tasks
+
 👉 **Celery-beat**: Periodic tasks scheduler
+
 👉 **Flower**: GUI for celery tasks
 
 ## <a name="quick-start">🤸 Quick Start</a>
