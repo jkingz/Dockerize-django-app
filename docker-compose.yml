@@ -31,7 +31,16 @@ services:
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: my-docker-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.command
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: 8001
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
   redis:
     image: redis:alpine
     container_name: my-docker-redis
