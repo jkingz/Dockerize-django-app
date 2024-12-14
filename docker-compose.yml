@@ -12,11 +12,19 @@ services:
     command: /app/entrypoint.sh
     ports:
       - "8000:8000"
+    environment:
+      - SERVICE_NAME=app
+      - DJANGO_SUPERUSER_EMAIL=admin@example.com
+      - DJANGO_SUPERUSER_PASSWORD=adminpassword
+      - DJANGO_SUPERUSER_FIRST_NAME=Admin
+      - DJANGO_SUPERUSER_LAST_NAME=User
     volumes:
       - .:/app
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
     restart: unless-stopped
 
   postgres:
@@ -25,17 +33,22 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydb
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: testpass
+      POSTGRES_DB: test
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
   pgadmin:
     image: dpage/pgadmin4
     container_name: my-docker-pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.command
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: admin
       PGADMIN_LISTEN_PORT: 8001
     restart: unless-stopped
@@ -54,6 +67,8 @@ services:
     image: my-docker-image
     container_name: my-docker-celery
     command: celery -A core worker -E -l info
+    environment:
+      - SERVICE_NAME=celery
     volumes:
       - .:/app
     depends_on:
@@ -65,6 +80,8 @@ services:
     image: my-docker-image
     container_name: my-docker-beat
     command: celery -A core beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    environment:
+      - SERVICE_NAME=celery-beat
     volumes:
       - .:/app
     depends_on:

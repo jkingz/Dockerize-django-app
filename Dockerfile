@@ -1,9 +1,9 @@
 # Description: Dockerfile for Python 3.12-slim-bullseye
-FROM python:3.12.2-slim-bullseye
+FROM python:3.12-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONBUFFERED=1
+ENV PYTHONUNBUFFERED=1
 
 # Set the working directory
 WORKDIR /app
@@ -23,3 +23,5 @@ COPY . /app/
 
 # Expose the port
 EXPOSE 8000
+# Set the entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
