@@ -1,5 +1,3 @@
-<p><a target="_blank" href="https://app.eraser.io/workspace/CFRU4D7w5QLjrbt6WUym" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
-
 <div align="center">
   <div>
     <img src="https://img.shields.io/badge/-Docker-blue?style=for-the-badge&logo=Docker&logoColor=white" alt="docker" />
@@ -8,10 +6,9 @@
     <img src="https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white" alt="postgres" />
     <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" alt="redis" />
     <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Celery&color=37814A&logo=Celery&logoColor=FFFFFF&label" alt="celery" />
-    <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Celery&color=37814A&logo=Celery&logoColor=FFFFFF&label" alt="celery-beat" />
   </div>
 
-  <h3 align="center">A Dockerize Python Django App</h3>
+  <h3 align="center">  🎯 A Dockerize Python Django App  🎯</h3>
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
@@ -20,6 +17,9 @@
 2. 🚀 [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
+
+
+![https://app.eraser.io/workspace/CFRU4D7w5QLjrbt6WUym](https://eraser.imgix.net/workspaces/CFRU4D7w5QLjrbt6WUym/LDNqz8zHGhSJCTKFJLMGzGpX3ru2/p6sLjCHeunnxHIKtNJTgu.png?ixlib=js-3.7.0)
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -57,7 +57,7 @@ Follow these steps to set up the project locally on your machine.
 Make sure you have the following installed on your machine:
 
 - [Git](https://git-scm.com/)
-- [Docker](https://docs.docker.com/get-started/) (Docker Desktop)
+- [Docker](https://docs.docker.com/get-started/)
 - [Python](https://www.python.org/)
 - [Pip](https://pypi.org/project/pip/)
 
